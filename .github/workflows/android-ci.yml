@@ -27,11 +27,6 @@ jobs:
           java-version: '25'
           cache: 'gradle'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v4
-        with:
-          packages: 'platforms;android-37 platform-tools'
-
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x gradlew
 
