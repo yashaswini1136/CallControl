@@ -31,7 +31,27 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest --stacktrace
+        run: |
+          if ! ./gradlew testDebugUnitTest --info --stacktrace; then
+            echo "## Unit Test Failure Report" >> $GITHUB_STEP_SUMMARY
+            for f in app/build/test-results/testDebugUnitTest/*.xml; do
+              if grep -q '<failure' "$f" 2>/dev/null; then
+                echo "### Failure in $(basename "$f")" >> $GITHUB_STEP_SUMMARY
+                echo '```xml' >> $GITHUB_STEP_SUMMARY
+                cat "$f" >> $GITHUB_STEP_SUMMARY
+                echo '```' >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+            exit 1
+          fi
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: app/build/reports/tests/testDebugUnitTest/
+          if-no-files-found: ignore
 
       - name: Run Android Lint
         run: ./gradlew lintDebug --stacktrace
