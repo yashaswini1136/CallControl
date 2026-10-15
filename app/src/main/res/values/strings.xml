@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CallControl</string>
+    <string name="accessibility_service_description">CallControl uses this service only during an active CallControl session to detect when a configured locked application (such as Instagram, YouTube, WhatsApp, or Documents) enters the foreground and display the CallControl restriction screen. It does not read screen text, messages, passwords, or keystrokes, and can be disabled at any time in Android Accessibility Settings.</string>
+</resources>

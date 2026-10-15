@@ -1,0 +1,33 @@
+*.iml
+.gradle
+.gradle/
+local.properties
+/local.properties
+.idea/
+.kotlin/
+.DS_Store
+Thumbs.db
+/build
+build/
+app/build/
+/captures
+.externalNativeBuild
+.cxx
+
+# Built application files
+*.apk
+*.aar
+*.aab
+
+# Keystores, certificates, and secrets
+*.jks
+*.keystore
+*.p12
+*.key
+*.pem
+*.secret
+secrets.properties
+
+# Android Studio temporary files
+*.hprof
+*.log

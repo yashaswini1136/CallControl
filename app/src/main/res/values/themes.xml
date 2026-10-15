@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CallControl"
+        parent="android:style/Theme.Material.Light.NoActionBar">
+
+        <item name="android:windowBackground">#202124</item>
+        <item name="android:colorAccent">#4285F4</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#202124</item>
+        <item name="android:navigationBarColor">#202124</item>
+
+    </style>
+
+</resources>
